@@ -14,7 +14,7 @@ Mes skills perso pour Claude (Code / claude.ai) et OpenCode. Ce repo est la sour
 ## Installation
 
 ```bash
-git clone git@github.com:<user>/aa-skills.git ~/projects-github/aa-skills
+git clone git@github.com:aannet/aa-skills.git ~/projects-github/aa-skills
 cd ~/projects-github/aa-skills
 ./install.sh
 ```
@@ -30,9 +30,3 @@ Mise à jour : `git pull` (les symlinks suffisent).
 ```
 
 Puis Settings > Capabilities > Skills > Upload. Penser à ré-uploader après modification.
-
-## Hors périmètre (à installer séparément)
-
-- `humanizer`, `taste-skill` : repos tiers.
-- Skills `twg*` : gérées par la CLI `twg`.
-- Skills Anthropic (`pdf`, `docx`, `xlsx`, `pptx`…) : synchronisées par claude.ai.
