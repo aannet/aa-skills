@@ -10,6 +10,11 @@ Mes skills perso pour Claude (Code / claude.ai) et OpenCode. Ce repo est la sour
 | `aa-clarity-polish` | Alléger un livrable (chiffres, jargon, réponse d'abord). Inclut `scripts/polish-lint.mjs`. |
 | `aa-project-brief` | Interview structurée puis génération d'un brief projet en Markdown. |
 | `aa-writing-style` | Style rédactionnel AA, avec densité S / M / L. |
+| `aa-pkm-daykeeper` | Vault PKM : reformate les entrées du daily log Galileo (titre, tags, bullets, NEXT). |
+| `aa-pkm-meetingkeeper` | Vault PKM : rapproche les transcripts Wispr avec le daily log. |
+| `aa-pkm-housekeeper` | Vault PKM : scan de santé et tri des inbox (lecture seule par défaut). |
+
+Les `aa-pkm-*` sont propres au vault PKM (chemins en dur) : à lancer depuis la racine du vault.
 
 ## Installation
 

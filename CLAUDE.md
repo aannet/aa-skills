@@ -32,6 +32,7 @@ Adding a skill: create `skills/<name>/SKILL.md`, add a row to the README table, 
 - All skills are written in ASD-STE100 style (short sentences, active voice, lenient: 20 words for steps, 25 for explanations). After editing a skill, run `node skills/aa-clarity-polish/scripts/ste-check.mjs skills/<name> --max 25` and fix the WARN lines. Examples, templates and code blocks are out of scope (the checker skips them). Keep French trigger phrases in `description` next to the English ones.
 - The skills cross-reference other skills by name (`taste-skill`, `dataviz`); do not rename skills without updating those mentions.
 - Edit skills here only, never in `~/.claude/skills/synced/` (claude.ai sync overwrites it). Do not add third-party skills (humanizer, twg*, Anthropic ones): they have their own source.
+- The `aa-pkm-*` skills are specific to the PKM Obsidian vault (hard-coded vault paths, French output). Run them from the vault.
 - Keep `description` on a single line in the frontmatter (most portable format).
 
 ## Git
