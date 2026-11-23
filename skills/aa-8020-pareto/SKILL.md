@@ -1,141 +1,160 @@
 ---
 name: aa-8020-pareto
-description: >
-  Prend du recul sur un sujet, une décision ou une surcharge en appliquant le 80/20 de Richard Koch couplé à la rigueur hypothesis-driven du conseil — la version qui challenge, pas le rappel mou du ratio. Déclencher dès que l'utilisateur veut prioriser, arbitrer, décider quoi arrêter, dit "j'ai trop de choses", "sur quoi je me concentre", "prendre du recul", "80/20", "pareto", "où est l'essentiel", ou face à une to-do/backlog/portefeuille/décision qui déborde. Déclencher aussi sur "passe ça au 80/20", "challenge-moi là-dessus", "quelle hypothèse tester en premier". Trois profils : perso (temps/tâches), archi-technique (décisions GGE/dette/build-vs-buy), business (portefeuille/clients/produits).
+description: "Step back on a topic, a decision or an overload with Richard Koch's 80/20 and consulting-grade hypothesis-driven rigor. This version challenges the user. It does not repeat the ratio. Use it when the user wants to prioritize, arbitrate or decide what to stop, or says \"j'ai trop de choses\", \"sur quoi je me concentre\", \"prendre du recul\", \"80/20\", \"pareto\", \"où est l'essentiel\", \"passe ça au 80/20\", \"challenge-moi là-dessus\", \"quelle hypothèse tester en premier\", or \"what should I focus on\". Also use it for a to-do list, backlog, portfolio or decision that overflows. It has 3 profiles: personal (time, tasks), technical architecture (debt, build-vs-buy, run) and business (portfolio, customers, products)."
 ---
 
-# Pareto 80/20 — prise de recul hypothesis-driven
+# Pareto 80/20 - hypothesis-driven step back
 
-Une skill 80/20 ratée agrandit la to-do list. Une réussie en retire les quatre cinquièmes. Ce skill oblige à couper, pas à hiérarchiser.
+A failed 80/20 makes the to-do list longer. A good one removes four fifths of it. This skill forces the user to cut, not to rank.
 
-Le piège à éviter : réciter le ratio ("concentre-toi sur l'important") et rendre une liste de priorités. Koch dit l'inverse de ce qu'on en retient. Quatre choses non négociables :
+Avoid this trap: repeating the ratio ("focus on what matters") and returning a list of priorities. Koch says the opposite. Follow these 4 rules:
 
-1. **Le 20% n'est jamais celui qu'on croit au premier regard.** Générer plusieurs hypothèses, dont une contrarian, et les rendre falsifiables.
-2. **La sortie est une décision d'élimination**, pas une liste triée. Ce qu'on arrête, ce sur quoi on double.
-3. **Analysis ou Thinking selon l'enjeu.** Pas d'intuition sur un sujet à six chiffres, pas de machinerie sur un arbitrage perso.
-4. **Chaque piste a un critère d'arrêt.** À quel signal on l'abandonne, décidé avant de creuser.
+1. **The 20% is never the one that you see first.** Generate several hypotheses, with one contrarian hypothesis. Make each one falsifiable.
+2. **The output is a decision to eliminate.** It is not a sorted list. Say what to stop and what to double down on.
+3. **Choose Analysis or Thinking from the stakes.** Do not guess on a topic with six-figure stakes. Do not use heavy machinery on a personal choice.
+4. **Give each lead a kill criterion.** Decide the signal to abandon it before you dig.
 
-Friction équilibrée : pousser sur ces points, mais rester rapide. La rigueur (scoring, hypothèses multiples, kill criteria chiffrés) s'active en mode Analysis. En Thinking, on reste léger.
+Keep friction balanced: push on these points, but stay fast. Rigor (scoring, multiple hypotheses, numeric kill criteria) applies in Analysis mode only. In Thinking mode, stay light.
 
-## Ask-first (3 questions max)
+Write the answer in the language of the user.
 
-Avant de ranker quoi que ce soit, cadrer avec au plus trois questions. Ne pas en poser plus — friction équilibrée, pas interrogatoire. Si l'utilisateur a déjà répondu dans le contexte, ne pas redemander.
+## Ask first (3 questions at most)
 
-- Quelle **métrique unique** tranche la décision (profit, temps, incidents, valeur métier, charge de run) ?
-- Quelle est la **deadline** de go / no-go ?
-- Quelles **données** sont fiables et accessibles tout de suite, ou faut-il estimer ?
+Frame the topic with 3 questions at most before you rank anything. Keep friction balanced. Do not run an interrogation. If the context already has an answer, do not ask again.
 
-Sans métrique unique, pas de 80/20 : juste une opinion sur ce qui est "important".
+- Which **single metric** decides? Examples: profit, time, incidents, business value, run load.
+- What is the **deadline** for the go / no-go decision?
+- Which **data** is reliable and available now? If none, can you estimate?
 
-## Analysis vs Thinking — router d'abord
+Without a single metric, there is no 80/20. There is only an opinion on what is "important".
 
-**80/20 Thinking** — qualitatif, intuition, pas de données. On interroge la situation, on formule le déséquilibre, on agit. Rapide. Défaut pour les sujets courants et les arbitrages perso. 1-2 hypothèses, pas de scoring formel.
+## Analysis or Thinking - route first
 
-**80/20 Analysis** — quantitatif. Hypothèses testées sur deux jeux de données (inputs vs outputs), classées par ordre décroissant. Réservé aux enjeux forts. C'est ici que s'activent les hypothèses multiples scorées, le format falsifiable et les kill criteria chiffrés.
+**80/20 Thinking** is qualitative. It uses intuition and no data. Question the situation, state the imbalance, act. It is fast. It is the default for common topics and personal choices. Use 1 or 2 hypotheses and no formal scoring.
 
-Règle : enjeu fort **et** données disponibles → Analysis. Sinon → Thinking. Le dire en une ligne avant de continuer.
+**80/20 Analysis** is quantitative. Test hypotheses on two data sets (inputs and outputs). Rank them in descending order. Use it for high stakes only. It applies multiple scored hypotheses, the falsifiable format and numeric kill criteria.
 
-Pour une décision critique en Analysis, ne pas viser la donnée parfaite : 80% des données dans les premiers 20% du temps, puis trancher à pleine confiance. Si ça ne marche pas, changer d'avis tôt.
+Rule: high stakes **and** data available means Analysis. Otherwise, use Thinking. Say the choice in one line before you continue.
 
-## Le workflow (backwards depuis la décision)
+For a critical decision in Analysis, do not look for perfect data. Get 80% of the data in the first 20% of the time. Then decide with full confidence. If it does not work, change your mind early.
 
-On part de la décision à prendre, on remonte.
+## Workflow (backwards from the decision)
 
-### 1. Une question de décision, une métrique de succès
-Confirmer la métrique de l'ask-first. Une seule unité — mélanger temps et argent produit du flou.
+Start from the decision to make, then work back.
 
-### 2. Router Analysis / Thinking
-Selon enjeu × disponibilité des données. Annoncer la branche.
+### 1. One decision question, one success metric
+Confirm the metric from the ask-first step. Use one unit only. A mix of time and money gives a blurred result.
 
-### 3. Générer les hypothèses (format causal falsifiable)
-Le cœur du skill.
-- **Analysis** : 3 à 7 hypothèses. **Thinking** : 1 à 2.
-- Toujours inclure au moins une **contrarian** : le 20% que personne ne regarde. La valeur vient des relations non-linéaires négligées, pas de la variable que tout le monde fixe.
-- Format strict, une chaîne causale par hypothèse, jamais fusionnées : **"Si X, alors Y, parce que Z."**
-- Chacune réfutable : définir le **signal attendu** (ce qu'on verrait si vraie) et le **signal infirmant** (ce qu'on verrait si fausse). Éviter les affirmations qu'on ne peut pas contredire.
+### 2. Route to Analysis or Thinking
+Use the stakes and the data availability. State the branch.
 
-### 4. Scorer au 80/20, garder le top 1-2
-Axe primaire : **impact / effort** — c'est le levier de Koch, un fort impact pour un faible effort. Départage secondaire : **confiance** (probabilité que l'hypothèse tienne) et **vitesse** (délai pour avoir le signal). Ne pas traiter les quatre à égalité : l'impact rapporté à l'effort domine.
-Garder 1 à 2 hypothèses. Pour chacune, un **minimum viable test** : le test le plus léger qui produit le signal.
+### 3. Generate hypotheses (falsifiable causal format)
+This is the core of the skill.
+- **Analysis**: 3 to 7 hypotheses. **Thinking**: 1 or 2.
+- Always include at least one **contrarian** hypothesis: the 20% that nobody looks at. The value comes from neglected non-linear relations, not from the variable that everyone watches.
+- Use this strict format, one causal chain for each hypothesis, never merged: **"If X, then Y, because Z."**
+- Make each hypothesis refutable. Define the **expected signal** (what you see if it is true) and the **refuting signal** (what you see if it is false). Avoid claims that nobody can contradict.
+
+### 4. Score with 80/20 and keep the top 1 or 2
+The main axis is **impact / effort**. This is Koch's lever: high impact for low effort.
+
+Use these tie-breakers:
+- **Confidence**: the probability that the hypothesis holds.
+- **Speed**: the time to get the signal.
+
+Do not weigh the axes equally. Impact against effort has the most weight.
+
+Keep 1 or 2 hypotheses. For each one, define a **minimum viable test** (MVT): the lightest test that gives the signal.
 
 ### 5. Kill criteria
-Pour chaque hypothèse retenue, le signal d'abandon défini **avant** de creuser : "On arrête [piste] si [métrique] reste sous [seuil] après [délai/effort]." En Thinking, critère qualitatif ("si après une semaine rien n'a bougé, on lâche"). Stopper l'analyse d'une piste dès son seuil atteint.
+For each kept hypothesis, define the abandon signal **before** you dig: "Stop [lead] if [metric] stays below [threshold] after [time or effort]." In Thinking, use a qualitative criterion ("if nothing moved after a week, drop it"). Stop the analysis of a lead when it reaches its threshold.
 
-### 6. Test du freeze-frame
-L'analyse 80/20 est une photo à l'instant t. Le 20% d'aujourd'hui sera-t-il celui dans 12 mois ? Boucles de rétroaction, tipping points, winner-takes-all, first-come-best-served qui déplacent l'essentiel ? Si oui, le signaler — figer la mauvaise image, c'est optimiser le passé.
+### 6. Freeze-frame test
+An 80/20 analysis is a photo at time t. Is today's 20% still the 20% in 12 months? Look for feedback loops, tipping points, winner-takes-all effects and first-come-best-served effects. These can move the essential part. If they do, say it. A frozen wrong image optimizes the past.
 
-### 7. Décision — deux colonnes, pas une liste
-- **Éliminer / réduire** — ce qu'on arrête vraiment. Pousser jusqu'à la question radicale de Koch : arrêter quatre cinquièmes. Beaucoup ne manqueront à personne.
-- **Doubler** — le 20% qui produit le 80%, où on redouble. Récursion : dans ce 20%, quel est le 20% du 20% (souvent 1% des causes → 50% des effets) ?
+### 7. Decision - two columns, not a list
+- **Eliminate / reduce**: what you really stop. Ask Koch's radical question: stop four fifths. Nobody will miss many of them.
+- **Double down**: the 20% that produces the 80%. Apply recursion: inside this 20%, what is the 20% of the 20%? Often 1% of the causes gives 50% of the effects.
 
-Ne jamais rendre "voici tes priorités". Rendre "voici ce que tu coupes, voici ce que tu amplifies".
+Never return "here are your priorities". Return "here is what you cut, here is what you amplify".
 
-## Format de sortie
+## Output format
 
-Court, orienté décision. Pas de préambule, pas de récit du raisonnement sauf si demandé. Refuser le contrat générique de mémo (Context / Analysis / Risks…) : il dilue le tranchant.
+Keep it short and decision-oriented. No preamble. Do not tell the reasoning story unless the user asks. Refuse the generic memo layout (Context / Analysis / Risks). It dilutes the answer.
+
+Write the labels and the content in the language of the user:
 
 ```
-Métrique : [de quoi on mesure le déséquilibre]
-Méthode : [Analysis | Thinking] — [pourquoi en une ligne]
+Metric: [what measures the imbalance]
+Method: [Analysis | Thinking] - [why, in one line]
 
-Hypothèses (Si X, alors Y, parce que Z) :
-  H1 [évidente] — signal : … / infirmé si : …
-  H2 [contrarian] — signal : … / infirmé si : …
-  [3-7 en Analysis, 1-2 en Thinking]
-Retenues (impact/effort) : H_ , H_
-  MVT : [test minimal]  |  Kill : [seuil d'abandon]
+Hypotheses (If X, then Y, because Z):
+  H1 [obvious] - signal: ... / refuted if: ...
+  H2 [contrarian] - signal: ... / refuted if: ...
+  [3-7 in Analysis, 1-2 in Thinking]
+Kept (impact/effort): H_ , H_
+  MVT: [minimum test]  |  Kill: [abandon threshold]
 
-Freeze-frame : [stable | va bouger parce que ...]
+Freeze-frame: [stable | will move because ...]
 
-ÉLIMINER / RÉDUIRE
+ELIMINATE / REDUCE
 - [...]
-DOUBLER
+DOUBLE DOWN
 - [...]
-Le 20% du 20% : [...]
+The 20% of the 20%: [...]
 
-Hypothèses / incertitudes : [chaque assumption + confiance + action de validation]
+Assumptions / uncertainties: [each assumption + confidence + validation action]
 ```
 
-Attacher une probabilité à la conclusion (l'utilisateur la veut systématiquement) : confiance que le 20% identifié est le bon, pas une fausse précision.
+Attach a probability to the conclusion. The user always wants it. State your confidence that the identified 20% is the right one. Do not give false precision.
 
-## Politique d'assumptions
+## Assumption policy
 
-Si une donnée critique manque, avancer avec des assumptions transparentes plutôt que bloquer. Annoter chacune : niveau de confiance, et l'action qui la validerait. Une conclusion sur données estimées n'est pas une conclusion sur données mesurées, et ça se dit.
+If critical data is missing, go on with transparent assumptions. Do not block. Annotate each assumption with a confidence level and the action that validates it. A conclusion on estimated data is not a conclusion on measured data. Say it.
 
-## Les trois profils
+## The three profiles
 
-Même workflow, accents différents. Détecter au contexte ou demander en un mot.
+Use the same workflow with different accents. Detect the profile from the context, or ask in one word.
 
-### Perso — temps, tâches, arbitrages de vie
-Dissociation effort/récompense. Le travail dur, surtout pour quelqu'un d'autre, rend peu. Smart + lazy bat smart + industrious (Von Manstein). Chercher les "îlots" de bonheur ou de productivité : les petits moments qui ont produit énormément, en déduire le commun. Éliminer sans culpabilité : ce que d'autres veulent, ce qui a toujours été fait ainsi, ce qu'on n'aime pas, ce où on n'est pas remarquablement bon.
-Défaut : Thinking, 1-2 hypothèses, kill qualitatif.
-Piège : la personne liste ses tâches importantes. Recadrer vers ce qu'elle arrête.
+### Personal - time, tasks, life choices
+- Effort and reward are separate. Hard work, mostly for someone else, pays little. Smart and lazy beats smart and industrious (Von Manstein).
+- Look for "islands" of happiness or productivity: the small moments that produced a lot. Find what they share.
+- Eliminate without guilt: what others want, what was always done this way, what you do not like, and what you are not remarkably good at.
+- Default: Thinking, 1 or 2 hypotheses, qualitative kill criterion.
+- Trap: the person lists their important tasks. Redirect to what they stop.
 
-### Archi-technique — décisions GGE, dette, build-vs-buy, run
-Comparative advantage et outsourcing ruthless. Sur quelle part de la chaîne (dev / intégration / run / maintenance) l'équipe a le plus grand avantage — externaliser ou déprioriser le reste. Le 20% des flux/apps qui portent 80% de la charge. Le 20% de la dette qui cause 80% des incidents. Se méfier des "coûts de sortie" invoqués pour ne rien décommissionner : souvent des chiffres sur une page, pas du cash.
-Défaut : Analysis si les métriques existent (ECW, incidents, logs). Hypothèses scorées et kill criteria pertinents.
-Piège : optimiser à la marge (mieux monitorer, ajouter un test). Pousser vers la transformation : quel flux, quelle app, quel service on arrête.
+### Technical architecture - debt, build-vs-buy, run
+- Use comparative advantage and ruthless outsourcing. Find the part of the chain (dev, integration, run, maintenance) where the team has the largest advantage. Outsource or deprioritize the rest.
+- Find the 20% of flows or apps that carry 80% of the load.
+- Find the 20% of the debt that causes 80% of the incidents.
+- Distrust "exit costs" that people give as a reason to decommission nothing. They are often figures on a page, not cash.
+- Default: Analysis if the metrics exist (workload, incidents, logs). Use scored hypotheses and relevant kill criteria.
+- Trap: optimizing at the margin (better monitoring, one more test). Push toward transformation: which flow, which app, which service do you stop?
 
-### Business — portefeuille, clients, produits
-Concentration et simplification. 20% des clients / produits / segments font 80% du profit — pas du CA (regarder la distribution du profit, pas du volume). Concentrer sur les segments rentables, les faire croître vite ; laisser filer les moins rentables, monter les prix, réduire le support. La complexité additionnelle sans échelle additionnelle détruit les marges.
-Défaut : Analysis, terrain d'origine de la méthode.
-Piège : raisonner en CA au lieu de profit, refuser de renoncer à des clients. Nommer les segments à abandonner.
+### Business - portfolio, customers, products
+- Use concentration and simplification. 20% of the customers, products or segments make 80% of the profit. Look at the profit distribution, not at revenue.
+- Concentrate on the profitable segments and grow them fast. Let the least profitable ones go, raise prices and reduce support.
+- Added complexity without added scale destroys margins.
+- Default: Analysis. This is the original field of the method.
+- Trap: thinking in revenue instead of profit, and refusing to give up customers. Name the segments to abandon.
 
-## Exemple de recadrage
+## Reframing example
 
-**Mou (à éviter) :** "Voici tes 5 priorités classées par importance..."
+**Soft (avoid):** "Here are your 5 priorities, ranked by importance..."
 
-**Challengeant (archi-technique) :**
-"Métrique : charge de run (ECW × incidents d'astreinte). Méthode : Analysis.
-H1 [évidente] : Si on stabilise les flux Salesforce, alors l'astreinte baisse, parce que c'est le système le plus sollicité. Infirmé si les logs montrent Salesforce < 30% des réveils.
-H2 [contrarian] : Si 3 flux ETL legacy non-Salesforce font ≥50% des réveils, alors les traiter d'abord bat toute autre action. Infirmé si PagerDuty sur 3 mois les place sous 30%.
-Retenue (impact/effort) : H2. MVT : extraire 3 mois de logs. Kill : abandon si < 30%.
-Freeze-frame : instable, septembre déplace le pic.
-Éliminer : 4 flux HU redondants post-collapse ABC. Doubler : monitoring middleware FR."
+**Challenging (technical architecture):**
+```
+Metric: run load (workload x on-call incidents). Method: Analysis.
+H1 [obvious]: If we stabilize the CRM flows, then on-call load drops, because the CRM is the most used system. Refuted if the logs show the CRM causes less than 30% of the wake-ups.
+H2 [contrarian]: If 3 legacy ETL flows outside the CRM cause 50% or more of the wake-ups, then fixing them first beats any other action. Refuted if 3 months of incident data put them under 30%.
+Kept (impact/effort): H2. MVT: extract 3 months of logs. Kill: abandon if under 30%.
+Freeze-frame: unstable, the September release moves the peak.
+Eliminate: 4 redundant flows left over from the last merger. Double down: monitoring of the integration layer.
+```
 
-## Garde-fous
+## Guardrails
 
-- Pas de ratio inventé. Koch : le déséquilibre est constant, le chiffre varie (90/10, 70/30). Dire "déséquilibre marqué", pas "exactement 80/20".
-- Ne pas transformer un arbitrage rapide en Analysis lourde. Le routage protège : hypothèses multiples, scoring et kill chiffrés réservés aux enjeux forts.
-- Hypothèses toujours au format "Si X, alors Y, parce que Z", une chaîne causale chacune, jamais fusionnées, toujours avec signal confirmant ET infirmant.
-- Si l'utilisateur donne le 20% évident et refuse le contrarian, poser l'hypothèse alternative une fois, puis avancer.
+- Do not invent a ratio. Koch says the imbalance is constant and the number varies (90/10, 70/30). Say "marked imbalance", not "exactly 80/20".
+- Do not turn a quick choice into a heavy Analysis. The routing step protects against this. Multiple hypotheses, scoring and numeric kill criteria are for high stakes only.
+- Always write hypotheses as "If X, then Y, because Z". Use one causal chain for each, never merged. Always give a confirming signal and a refuting signal.
+- If the user gives the obvious 20% and refuses the contrarian hypothesis, state the alternative once. Then go on.
