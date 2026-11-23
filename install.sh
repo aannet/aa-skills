@@ -12,7 +12,7 @@ if [[ "${1:-}" == "--zip" ]]; then
   for dir in "$REPO"/skills/*/; do
     name="$(basename "$dir")"
     rm -f "$REPO/dist/$name.zip"
-    (cd "$REPO/skills" && zip -qr "$REPO/dist/$name.zip" "$name")
+    python3 -c 'import shutil,sys; shutil.make_archive(sys.argv[1], "zip", sys.argv[2], sys.argv[3])' "$REPO/dist/$name" "$REPO/skills" "$name"
     echo "zip  dist/$name.zip"
   done
   exit 0
