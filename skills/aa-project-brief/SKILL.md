@@ -1,108 +1,92 @@
 ---
 name: aa-project-brief
-description: "Guide Claude through a structured project brief elicitation workflow. Trigger this skill whenever the user says \"brief projet\", \"je démarre un projet\", \"nouveau projet\", or any equivalent phrase signaling the start of a new project. Also trigger when the user explicitly asks to generate a project brief or spec document. Do NOT trigger on general questions about a project already in progress. This skill drives a multi-round Q&A interview before generating a structured Markdown brief."
+description: "Guide a structured interview and write a project brief as a Markdown file. Use it when the user starts a project: \"brief projet\", \"je démarre un projet\", \"nouveau projet\", \"new project\", \"project brief\". Also use it when the user asks for a project brief or a spec document. Do not use it for questions about a project that is already in progress. The brief is in the language of the user."
 ---
 
-# Project Brief Skill
+# Project Brief
 
 ## Purpose
 
-Turn raw, unordered context elements into a structured, exportable project brief via
-a guided interview. The output is a `.md` file with fixed sections.
-
----
+Turn raw, unordered context into a structured project brief. Use a guided interview. The output is a `.md` file with fixed sections.
 
 ## Workflow
 
-### Phase 1 — Acknowledge & Extract
+### Phase 1 - Acknowledge and extract
 
-When triggered, immediately acknowledge the project start and extract what the user
-has already shared (stack hints, goals, constraints, deliverables). Do not ask for
-anything already provided.
+1. Acknowledge the project start.
+2. Extract what the user already gave: stack hints, goals, constraints, deliverables.
+3. Summarize what you understood in 2 or 3 lines.
+4. Do not ask for information that the user already gave.
 
-Briefly summarize what you understood in 2–3 lines, then move to Phase 2.
+### Phase 2 - First round of questions
 
----
+Ask 4 to 6 questions. Group them by axis. Do not use numbered sub-bullets. Ask about gaps only.
 
-### Phase 2 — First Round of Questions
+Use these 4 axes. Ask at least one question for each axis that has a gap:
 
-Ask **5 to 7 questions maximum**, mixing strategic and technical dimensions from the
-start. Group them clearly. Do not number them with sub-bullets — keep it readable.
+- **Context and problem**: What problem or opportunity starts the project? Who are the stakeholders?
+- **Objectives and success criteria**: What are the 2 or 3 expected results? How will we know that the project succeeded?
+- **Tech stack and constraints**: Which technologies must or should the project use? Are there constraints on integration, performance or security?
+- **Deliverables and milestones**: Which deliverables does the project need? Are there fixed deadlines?
 
-Cover gaps across these axes (adapt to what's missing, don't repeat what's known):
+Write the questions in the language of the user.
 
-- **Contexte & problématique** : Quel est le problème ou l'opportunité à l'origine du projet ? Qui sont les parties prenantes ?
-- **Objectifs & critères de succès** : Quels sont les 2-3 résultats attendus ? Comment saura-t-on que c'est réussi ?
-- **Stack technique & contraintes** : Quelles technologies sont imposées ou souhaitées ? Y a-t-il des contraintes d'intégration, de performance, de sécurité ?
-- **Livrables & jalons** : Quels sont les livrables attendus ? Y a-t-il des échéances fixes ?
+### Phase 3 - Evaluate complexity
 
----
+After the answers to round 1, decide if a second round is necessary.
 
-### Phase 3 — Evaluate Complexity
+Start a second round if one of these is true:
+- The scope has 2 or more very different readings.
+- Key technical constraints are still unclear.
+- Success criteria are vague or missing.
+- The project involves several teams and the stakeholders are unclear.
 
-After receiving answers to Round 1, evaluate whether a second round is needed.
+Skip the second round if both of these are true:
+- You can fill all 4 brief sections with confidence.
+- The project is simple and well scoped.
 
-**Trigger a second round if:**
-- Scope is ambiguous (could be interpreted in 2+ significantly different ways)
-- Key technical constraints are still unclear
-- Success criteria are vague or missing
-- Stakeholder landscape is unclear for a multi-team project
+In a second round, ask 3 or 4 targeted questions. Do not repeat round 1.
 
-**Skip second round if:**
-- All 4 brief sections can be filled with confidence
-- Project is straightforward and well-scoped
+### Phase 4 - Generate the brief
 
-If a second round is needed, ask **3 to 4 targeted follow-up questions only** — no
-repetition of Round 1 territory.
-
----
-
-### Phase 4 — Generate the Brief
-
-Generate a structured Markdown brief with these **exact sections**, always in this order:
+Write a Markdown brief with these sections, always in this order. Translate the headings and the content to the language of the user. Use French if the user wrote in French.
 
 ```markdown
-# Brief Projet — [Nom du projet]
+# Project Brief - [Project name]
 
-## 1. Contexte & Problématique
-[Description du contexte, de l'opportunité ou du problème à résoudre.
-Parties prenantes identifiées.]
+## 1. Context and Problem
+[Context, opportunity or problem to solve. Identified stakeholders.]
 
-## 2. Objectifs & Critères de Succès
-[Objectifs principaux du projet. Critères mesurables ou observables de succès.]
+## 2. Objectives and Success Criteria
+[Main objectives. Measurable or observable success criteria.]
 
-## 3. Stack Technique & Contraintes
-[Technologies retenues ou imposées. Contraintes d'intégration, de sécurité,
-de performance, de compliance, ou organisationnelles.]
+## 3. Tech Stack and Constraints
+[Chosen or required technologies. Constraints on integration, security,
+performance, compliance or organization.]
 
-## 4. Livrables & Jalons
-[Liste des livrables attendus. Jalons ou échéances identifiées.]
+## 4. Deliverables and Milestones
+[List of expected deliverables. Identified milestones or deadlines.]
 
 ---
-*Brief généré le [DATE] — v1.0*
+*Brief generated on [DATE] - v1.0*
 ```
 
-**Rules:**
-- Write in the language the user used throughout the interview (French by default)
-- Be concise but complete — no padding, no vague filler
-- If a section has genuine unknowns, state them explicitly as `⚠️ À préciser`
-- Always export as a `.md` file using `present_files`
+Rules:
+- Be concise and complete. Do not add filler.
+- Mark each real unknown as `⚠️ To clarify` (translated to the language of the user).
+- Export the brief as a `.md` file with `present_files`.
+- If `present_files` is not available, write `brief-<name>.md` in the current directory.
 
----
+### Phase 5 - Close
 
-### Phase 5 — Close
+After you present the file, stop. Do not propose next actions unless the user asks. The brief is the deliverable.
 
-After presenting the file, stop. Do **not** propose next actions unless the user
-explicitly asks. The brief is the deliverable.
-
----
-
-## Edge Cases
+## Edge cases
 
 | Situation | Behavior |
 |---|---|
-| User provides very rich context upfront | Reduce Round 1 to 3–4 gap-filling questions only |
-| User gives one-line context | Ask full Round 1, likely trigger Round 2 |
-| Project is non-technical (process, org) | Omit or adapt "Stack technique" section accordingly |
-| User asks to regenerate or update the brief | Re-run Phase 4 only, incorporating new inputs |
-| User says "deuxième série de questions" | Jump directly to Phase 3 re-evaluation |
+| The user gives rich context at the start | Ask only 3 or 4 questions that fill gaps. |
+| The user gives one line of context | Ask the full round 1. Expect a round 2. |
+| The project is not technical (process, organization) | Omit or adapt the "Tech Stack and Constraints" section. |
+| The user asks to regenerate or update the brief | Run Phase 4 only, with the new input. |
+| The user asks for a second set of questions ("deuxième série de questions") | Go to Phase 3. |
